@@ -45,4 +45,7 @@ The manual installation method involves downloading the plugin and uploading it 
 == Changelog ==
 
 = 1.0.0 =
+
+September 18, 2019
+
 * Initial release.

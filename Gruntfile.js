@@ -67,5 +67,5 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-version');
 
     /* Create default task */
-    grunt.registerTask('default', ['version', 'cssmin', 'uglify']);
+    grunt.registerTask('default', ['cssmin', 'uglify']);
 };

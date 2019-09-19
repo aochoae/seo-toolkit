@@ -72,7 +72,7 @@ class Twitter
 
     /**
      * Retrieves the Twitter Cards meta tags for the front page.
-     * 
+     *
      * @since 1.0.0
      */
     public function website( $metatags, $context )

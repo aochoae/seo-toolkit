@@ -46,7 +46,7 @@ class Loader
         $this->plugin_file = $plugin_file;
 
         add_action( 'init', [ $this, 'loadTextdomain' ] );
-        
+
         add_action( 'init', [ $this, 'extensions' ] );
 
         add_action( 'init', [ $this, 'features' ] );

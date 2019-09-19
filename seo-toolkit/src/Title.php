@@ -128,7 +128,7 @@ class Title
     public function getDocumentTitle()
     {
         $title = '';
-        
+
         /* Home */
         if ( is_front_page() ) {
 
@@ -148,7 +148,7 @@ class Title
 
             $title = (new Post( $post_id ))->getTitle();
         }
-        
+
         /* Post type archive title */
         elseif ( is_post_type_archive() ) {
             $title = post_type_archive_title( '', false );

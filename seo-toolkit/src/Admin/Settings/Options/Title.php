@@ -53,7 +53,7 @@ class Title
     public function getFormat( $area )
     {
         $format = [];
-        
+
         $format['frontpage'] = [
             '%site-title% %separator% %tagline%',
             '%site-title%'
@@ -84,11 +84,11 @@ class Title
             '%title% %separator% %site-title%',
             '%title%'
         ];
-        
+
         $format = apply_filters( 'seo_toolkit_title_formats', $format );
 
         $_area = isset( $format[ $area ] ) ? $format[ $area ] : $format[ 'default' ];
-        
+
         return $this->getOptions( $_area );
     }
 
@@ -100,20 +100,20 @@ class Title
     private function getOptions( $keys )
     {
         $return = [];
-        
+
         foreach( $keys as $key ) {
-        
+
             $options = explode( " ", $key );
-            
+
             $auxiliar = [];
-            
+
             foreach( $options as $option ) {
                 $auxiliar[] = $this->getString( $option );
             }
-            
+
             $return[ $key ] = join( ' ', $auxiliar );
         }
-        
+
         return $return;
     }
 

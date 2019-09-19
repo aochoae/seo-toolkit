@@ -279,7 +279,7 @@ class General extends AbstractPage
             <div id="minor-publishing">
 
                 <div id="seo-toolkit-metatags" class="seo-toolkit-tabs seo-toolkit-tabs-container">
-        
+
                     <ul class="tabs tabs-nav">
                     <?php foreach( $data as $key => $tab ) :  ?>
                         <li><a href="#<?php echo esc_attr( $tab[ 'panel' ] ); ?>"><?php echo esc_html( $tab[ 'label' ] ); ?></a></li>

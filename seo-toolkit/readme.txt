@@ -1,6 +1,6 @@
 === SEO Toolkit ===
 Contributors: seotoolkit
-Tags: seo, google, bing, xml sitemap, yandex, 
+Tags: seo, google, bing, yandex, xml sitemap, image xml sitemap
 Requires at least: 4.9
 Tested up to: 5.2
 Requires PHP: 5.6

@@ -101,7 +101,7 @@ class Sitemaps extends AbstractPage
         $columns = get_current_screen()->get_columns(); ?>
 
         <div class="wrap">
-        
+
             <?php settings_errors(); ?>
 
             <h1 class="wp-heading-inline"><?php esc_html_e( 'XML Sitemaps', 'seo-toolkit' ); ?></h1>

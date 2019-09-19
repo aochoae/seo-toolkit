@@ -119,7 +119,7 @@ class SocialMedia extends AbstractPage
         $columns = get_current_screen()->get_columns(); ?>
 
         <div class="wrap">
-        
+
             <?php settings_errors(); ?>
 
             <h1 class="wp-heading-inline"><?php esc_html_e( 'Social Media', 'seo-toolkit' ); ?></h1>
@@ -254,7 +254,7 @@ class SocialMedia extends AbstractPage
                             <?php esc_html_e( 'Use images that are at least 1080 pixels in width for best display on high resolution devices. At the minimum, you should use images that are 600 pixels.', 'seo-toolkit' ); ?>
                             </p>
                         </div>
-                
+
                     </div>
 
                     <div id="toolbox-twitter" class="seo-toolkit-panel">

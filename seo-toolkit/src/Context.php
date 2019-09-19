@@ -140,7 +140,7 @@ class Context
             elseif ( is_date() ) {
                 $context = 'date';
             }
-            
+
             elseif ( is_post_type_archive() ) {
                 $context = get_query_var( 'post_type' ) . '_archive';
             }

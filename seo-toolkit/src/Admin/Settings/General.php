@@ -94,14 +94,16 @@ class General extends AbstractPage
                 'default'      => ''
             ],
             'seo_toolkit_robots_donot_implement_index' => [
-                'type'         => 'boolean',
-                'show_in_rest' => false,
-                'default'      => false
+                'type'              => 'boolean',
+                'sanitize_callback' => 'boolval',
+                'show_in_rest'      => false,
+                'default'           => false
             ],
             'seo_toolkit_robots_feed_noindex' => [
-                'type'         => 'boolean',
-                'show_in_rest' => false,
-                'default'      => true
+                'type'              => 'boolean',
+                'sanitize_callback' => 'boolval',
+                'show_in_rest'      => false,
+                'default'           => true
             ],
             'seo_toolkit_website' => [
                 'type'         => 'string',
@@ -110,13 +112,36 @@ class General extends AbstractPage
             ],
             'seo_toolkit_organization' => [
                 'type'              => 'string',
-                'sanitize_callback' => [ $this, 'sanitize' ],
+                'sanitize_callback' => function( $input )
+                {
+                    if ( ! is_array( $input ) ) {
+                        return $input;
+                    }
+
+                    $args = [
+                        'name' => FILTER_SANITIZE_STRING,
+                        'logo' => FILTER_VALIDATE_URL
+                    ];
+
+                    return filter_var_array( $input, $args );
+                },
                 'show_in_rest'      => false,
                 'default'           => []
             ],
             'seo_toolkit_person' => [
                 'type'              => 'string',
-                'sanitize_callback' => [ $this, 'sanitize' ],
+                'sanitize_callback' => function( $input ) {
+                    if ( ! is_array( $input ) ) {
+                        return $input;
+                    }
+
+                    $args = [
+                        'username' => FILTER_SANITIZE_STRING,
+                        'avatar'   => FILTER_VALIDATE_URL
+                    ];
+
+                    return filter_var_array( $input, $args );
+                },
                 'show_in_rest'      => false,
                 'default'           => []
             ],
@@ -144,14 +169,11 @@ class General extends AbstractPage
         }
 
         $args = [
-            'name'                     => FILTER_SANITIZE_STRING,
-            'logo'                     => FILTER_SANITIZE_URL,
-            'avatar'                   => FILTER_SANITIZE_URL,
             'google-site-verification' => FILTER_SANITIZE_STRING,
             'msvalidate.01'            => FILTER_SANITIZE_STRING,
             'yandex-verification'      => FILTER_SANITIZE_STRING,
             'p:domain_verify'          => FILTER_SANITIZE_STRING,
-            'baidu-site-verification'  => FILTER_SANITIZE_URL
+            'baidu-site-verification'  => FILTER_SANITIZE_STRING
         ];
 
         return filter_var_array( $input, $args );
@@ -455,6 +477,7 @@ class General extends AbstractPage
                             <label for="seo_toolkit_person_username" class="title"><?php esc_html_e( 'Name', 'seo-toolkit' ); ?></label>
                             <select id="seo_toolkit_person_username" name="seo_toolkit_person[username]">
                             <?php foreach( $users as $user ) : ?>
+                                <?php error_log( $user->user_login ); ?>
                                 <option value="<?php echo esc_attr( $user->user_login ); ?>" <?php selected( $username, $user->user_login ); ?>>
                                     <?php echo esc_html( "{$user->display_name} ({$user->user_login})" ); ?>
                                 </option>

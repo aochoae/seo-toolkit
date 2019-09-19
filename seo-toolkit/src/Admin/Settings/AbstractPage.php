@@ -76,15 +76,17 @@ abstract class AbstractPage
      */
     public function enqueue()
     {
+        $suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
+
         wp_enqueue_style( 'seo-toolkit-admin-style',
-            plugins_url( 'static/css/settings.css', SEO_TOOLKIT_FILE ),
+            plugins_url( "static/css/settings$suffix.css", SEO_TOOLKIT_FILE ),
             [],
             null,
             'all'
         );
 
         wp_enqueue_script( 'seo-toolkit-admin-script',
-            plugins_url( 'static/js/settings.js', SEO_TOOLKIT_FILE ),
+            plugins_url( "static/js/settings$suffix.js", SEO_TOOLKIT_FILE ),
             [ 'jquery-ui-tabs', 'postbox' ],
             null,
             true

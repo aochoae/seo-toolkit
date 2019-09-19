@@ -263,28 +263,30 @@ class Admin
      */
     public function register()
     {
+        $suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
+
         wp_register_style( 'seo-toolkit-style',
-            plugins_url( 'static/css/posts.css', SEO_TOOLKIT_FILE ),
+            plugins_url( "static/css/posts$suffix.css", SEO_TOOLKIT_FILE ),
             [],
             null,
             'all'
         );
 
         wp_register_script( 'seo-toolkit-script',
-            plugins_url( 'static/js/posts.js', SEO_TOOLKIT_FILE ),
+            plugins_url( "static/js/posts$suffix.js", SEO_TOOLKIT_FILE ),
             [ 'jquery-ui-tabs' ],
             null
         );
 
         wp_register_script( 'seo-toolkit-upload',
-            plugins_url( 'static/js/upload.js', SEO_TOOLKIT_FILE ),
+            plugins_url( "static/js/upload$suffix.js", SEO_TOOLKIT_FILE ),
             [ 'jquery' ],
             null,
             true
         );
 
         wp_register_script( 'seo-toolkit-sitemaps',
-            plugins_url( 'static/js/sitemaps.js', SEO_TOOLKIT_FILE ),
+            plugins_url( "static/js/sitemaps$suffix.js", SEO_TOOLKIT_FILE ),
             [ 'jquery' ],
             null,
             true

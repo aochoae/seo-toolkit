@@ -8,11 +8,11 @@ Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: https://spdx.org/licenses/GPL-2.0-or-later.html
 
-SEO Toolkit is a smart plugin that assistances you to optimize your website for purposes of SEO with easy.
+SEO Toolkit is a smart plugin that assists you to optimize your website for purposes of SEO easily.
 
 == Description ==
 
-SEO Toolkit is a smart plugin that assistances you to optimize your website for purposes of SEO with easy.
+SEO Toolkit is a smart plugin that assists you to optimize your website for purposes of SEO easily.
 
 * XML Sitemap support
 * Image XML Sitemap

@@ -2,7 +2,7 @@
 /**
  * Plugin Name: SEO Toolkit
  * Plugin URI: https://github.com/seo-toolkit
- * Description: SEO Toolkit is a smart plugin that assistances you to optimize your website for purposes of SEO with easy.
+ * Description: SEO Toolkit is a smart plugin that assists you to optimize your website for purposes of SEO easily.
  * Author: SEO Toolkit
  * Author URI: https://www.seo-toolkit.page/
  * Version: 1.0.1

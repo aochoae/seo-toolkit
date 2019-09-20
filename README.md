@@ -1,7 +1,7 @@
 # SEO Toolkit
 
-SEO Toolkit is a smart plugin that assistances you to optimize your website for
-purposes of SEO with easy.
+SEO Toolkit is a smart plugin that assists you to optimize your website for
+purposes of SEO easily.
 
 * XML Sitemap support
 * Image XML Sitemap

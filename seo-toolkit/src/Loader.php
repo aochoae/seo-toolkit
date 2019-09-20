@@ -18,7 +18,7 @@ class Loader
      * @since 1.0.0
      * @var string
      */
-    const VERSION = '1.0.0';
+    const VERSION = '1.0.1';
 
     /**
      * The path to a plugin main file

@@ -1,10 +1,10 @@
 === SEO Toolkit ===
 Contributors: seotoolkit
-Tags: seo, google, bing, yandex, xml sitemap, image xml sitemap
+Tags: seo, google, bing, yandex, xml sitemap, image xml sitemap, structured data, woocommerce
 Requires at least: 4.9
 Tested up to: 5.2
 Requires PHP: 5.6
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: https://spdx.org/licenses/GPL-2.0-or-later.html
 
@@ -43,6 +43,14 @@ In the search field type "SEO Toolkit", then click "Search Plugins" Once you've 
 The manual installation method involves downloading the plugin and uploading it to your web using a FTP application. The WordPress codex contains [instructions on how to do this here](https://wordpress.org/support/article/managing-plugins/#manual-uninstallation).
 
 == Changelog ==
+
+= 1.0.1 =
+
+September 20, 2019)
+
+* Updates the validate and sanitize filters
+* Adds minified resources
+* Code cleanup
 
 = 1.0.0 =
 

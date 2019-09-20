@@ -13,6 +13,9 @@ purposes of SEO with easy.
 * SEO for Custom Post Types
 * SEO for Categories, Tags and Custom Taxonomies
 
+The latest stable version is also available from the
+[WordPress Plugin Directory](https://wordpress.org/plugins/seo-toolkit/).
+
 ## Requirements
 
 * PHP version 5.6 or greater

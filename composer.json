@@ -4,6 +4,12 @@
     "description": "SEO Toolkit is a smart plugin that assists you to optimize your website for purposes of SEO easily.",
     "version": "1.0.1",
     "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "Luis A. Ochoa",
+            "role": "Developer"
+        }
+    ],
     "keywords": [
         "seo",
         "google",
@@ -15,7 +21,7 @@
     "require": {
         "php": ">=5.6.20",
         "ext-json": "*",
-        "ext-simplexml": "*"
+        "ext-dom": "*"
     },
     "autoload": {
         "psr-4": {

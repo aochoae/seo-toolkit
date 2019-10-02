@@ -63,7 +63,7 @@ class Title
     public static function newInstance()
     {
         if ( ! isset( self::$instance ) ) {
-            self::$instance = new Title;
+            self::$instance = new Title();
         }
 
         return self::$instance;

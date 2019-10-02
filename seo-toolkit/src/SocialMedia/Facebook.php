@@ -48,7 +48,7 @@ class Facebook
     public static function newInstance()
     {
         if ( ! isset( self::$instance ) ) {
-            self::$instance = new Facebook;
+            self::$instance = new Facebook();
         }
 
         return self::$instance;

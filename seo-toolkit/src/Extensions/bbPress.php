@@ -42,7 +42,7 @@ class bbPress
     public static function newInstance()
     {
         if ( ! isset( self::$instance ) ) {
-            self::$instance = new bbPress;
+            self::$instance = new bbPress();
         }
 
         return self::$instance;

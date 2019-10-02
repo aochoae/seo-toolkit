@@ -40,7 +40,7 @@ class Ping
     public static function newInstance()
     {
         if ( ! isset( self::$instance ) ) {
-            self::$instance = new Ping;
+            self::$instance = new Ping();
         }
 
         return self::$instance;

@@ -40,7 +40,7 @@ class Request
     public static function newInstance()
     {
         if ( ! isset( self::$instance ) ) {
-            self::$instance = new Request;
+            self::$instance = new Request();
         }
 
         return self::$instance;

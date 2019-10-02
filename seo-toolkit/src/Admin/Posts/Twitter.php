@@ -44,7 +44,7 @@ class Twitter
     public static function newInstance()
     {
         if ( ! isset( self::$instance ) ) {
-            self::$instance = new Twitter;
+            self::$instance = new Twitter();
         }
 
         return self::$instance;

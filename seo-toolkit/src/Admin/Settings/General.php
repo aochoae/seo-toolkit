@@ -47,7 +47,7 @@ class General extends AbstractPage
     public static function newInstance()
     {
         if ( ! isset( self::$instance ) ) {
-            self::$instance = new General;
+            self::$instance = new General();
         }
 
         return self::$instance;

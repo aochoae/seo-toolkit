@@ -52,7 +52,7 @@ class SocialMedia
     public static function newInstance()
     {
         if ( ! isset( self::$instance ) ) {
-            self::$instance = new SocialMedia;
+            self::$instance = new SocialMedia();
         }
 
         return self::$instance;

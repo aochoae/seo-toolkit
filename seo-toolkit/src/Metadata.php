@@ -41,7 +41,7 @@ class Metadata
     public static function newInstance()
     {
         if ( ! isset( self::$instance ) ) {
-            self::$instance = new Metadata;
+            self::$instance = new Metadata();
         }
 
         return self::$instance;

@@ -41,7 +41,7 @@ class Sitemaps extends AbstractPage
     public static function newInstance()
     {
         if ( ! isset( self::$instance ) ) {
-            self::$instance = new Sitemaps;
+            self::$instance = new Sitemaps();
         }
 
         return self::$instance;

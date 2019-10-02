@@ -42,7 +42,7 @@ class Posts
     public static function newInstance()
     {
         if ( ! isset( self::$instance ) ) {
-            self::$instance = new Posts;
+            self::$instance = new Posts();
         }
 
         return self::$instance;

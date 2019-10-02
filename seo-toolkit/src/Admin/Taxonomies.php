@@ -46,7 +46,7 @@ class Taxonomies
     public static function newInstance()
     {
         if ( ! isset( self::$instance ) ) {
-            self::$instance = new Taxonomies;
+            self::$instance = new Taxonomies();
         }
 
         return self::$instance;

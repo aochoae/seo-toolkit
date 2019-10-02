@@ -40,7 +40,7 @@ class Images
     public static function newInstance()
     {
         if ( ! isset( self::$instance ) ) {
-            self::$instance = new Images;
+            self::$instance = new Images();
         }
 
         return self::$instance;

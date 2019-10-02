@@ -40,7 +40,7 @@ class Webmasters
     public static function newInstance()
     {
         if ( ! isset( self::$instance ) ) {
-            self::$instance = new Webmasters;
+            self::$instance = new Webmasters();
         }
 
         return self::$instance;

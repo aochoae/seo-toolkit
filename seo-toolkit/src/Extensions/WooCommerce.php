@@ -56,7 +56,7 @@ class WooCommerce
     public static function newInstance()
     {
         if ( ! isset( self::$instance ) ) {
-            self::$instance = new WooCommerce;
+            self::$instance = new WooCommerce();
         }
 
         return self::$instance;

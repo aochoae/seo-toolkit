@@ -38,7 +38,7 @@ class Editor extends AbstractPage
     public static function newInstance()
     {
         if ( ! isset( self::$instance ) ) {
-            self::$instance = new Editor;
+            self::$instance = new Editor();
         }
 
         return self::$instance;

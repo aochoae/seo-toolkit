@@ -81,7 +81,7 @@ class Robots
     public static function newInstance()
     {
         if ( ! isset( self::$instance ) ) {
-            self::$instance = new Robots;
+            self::$instance = new Robots();
         }
 
         return self::$instance;

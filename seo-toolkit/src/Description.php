@@ -59,7 +59,7 @@ class Description
     public static function newInstance()
     {
         if ( ! isset( self::$instance ) ) {
-            self::$instance = new Description;
+            self::$instance = new Description();
         }
 
         return self::$instance;

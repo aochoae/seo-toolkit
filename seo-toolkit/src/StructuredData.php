@@ -50,7 +50,7 @@ class StructuredData
     public static function newInstance()
     {
         if ( ! isset( self::$instance ) ) {
-            self::$instance = new StructuredData;
+            self::$instance = new StructuredData();
         }
 
         return self::$instance;

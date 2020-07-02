@@ -21,6 +21,18 @@ The latest stable version is also available from the
 * PHP version 5.6 or greater
 * WordPress 4.9 or greater
 
+## Developers
+
+### Compose
+
+    composer install --prefer-dist
+
+### Docker
+
+    docker-compose up -d
+    docker exec seo-toolkit chown -R www-data:www-data /var/www/html
+    sudo chown -R $USER:$USER seo-toolkit
+
 ## Credits
 
 * Icon made by [Gregor Cresnar](https://www.flaticon.com/authors/gregor-cresnar)

@@ -210,3 +210,8 @@ body[class*='seo-toolkit'] .postbox .plugin-information .form-table td {
 
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {}
+
+/* WordPress 5.4 */
+.wp-admin .seo-toolkit-tabs .form-field select {
+    max-width: 100% !important;
+}

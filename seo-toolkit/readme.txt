@@ -4,7 +4,7 @@ Tags: seo, google, bing, yandex, xml sitemap, image xml sitemap, structured data
 Requires at least: 4.9
 Tested up to: 5.5
 Requires PHP: 5.6
-Stable tag: 1.0.1
+Stable tag: 1.1.0
 License: GPLv2 or later
 License URI: https://spdx.org/licenses/GPL-2.0-or-later.html
 

@@ -18,7 +18,7 @@ class Loader
      * @since 1.0.0
      * @var string
      */
-    const VERSION = '1.0.1';
+    const VERSION = '1.1.0';
 
     /**
      * The path to a plugin main file
@@ -94,22 +94,13 @@ class Loader
             '\Toolkit\SocialMedia',
             '\Toolkit\Webmasters',
             '\Toolkit\StructuredData',
-            '\Toolkit\Metadata'
+            '\Toolkit\Metadata',
+            '\Toolkit\Sitemaps'
         ];
 
         foreach( $tools as $tool ) {
             call_user_func( "$tool::newInstance" );
         }
-
-        $sitemaps_enabled = (bool) get_option( 'seo_toolkit_sitemaps_enabled', true );
-
-        if ( $sitemaps_enabled ) {
-            \Toolkit\Sitemaps::newInstance();
-        }
-
-        add_filter( 'wp_sitemaps_enabled', function() use ( $sitemaps_enabled ) {
-            return !$sitemaps_enabled;
-        }, 5, 1);
     }
 
     /**

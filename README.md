@@ -23,6 +23,21 @@ The latest stable version is also available from the
 
 ## Developers
 
+### Grunt
+
+Install Grunt
+
+    sudo npm install --global grunt-cli
+    npm install --silent
+
+Build (Minify resources)
+
+    grunt
+
+Handle the version of the plugin
+
+    grunt version
+
 ### Compose
 
     composer install --prefer-dist

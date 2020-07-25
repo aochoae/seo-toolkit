@@ -55,7 +55,7 @@ class Ping
     {
         check_ajax_referer( 'seo-toolkit-sitemaps-ping', 'security' );
 
-        $sitemap = get_home_url( get_current_blog_id(), 'sitemap.xml' );
+        $sitemap = filter_var( $_POST[ 'sitemap' ], FILTER_VALIDATE_URL );
 
         $services = [
             'bing'   => 'https://www.bing.com/ping?sitemap=',
@@ -71,6 +71,6 @@ class Ping
             $notification[ $service ] = wp_remote_retrieve_body( $response );
         }
 
-        wp_send_json_success( [ 'response' => 200, $notification ] );
+        wp_send_json_success( [ 'sitemap' => $sitemap, $notification ] );
     }
 }

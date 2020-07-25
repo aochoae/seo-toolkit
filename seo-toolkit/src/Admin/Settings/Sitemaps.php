@@ -243,7 +243,9 @@ class Sitemaps extends AbstractPage
      */
     public function actions()
     {
-        $sitemap = get_home_url( get_current_blog_id(), 'sitemap.xml' ); ?>
+        $file = $this->getSitemapFile();
+
+        $sitemap = get_home_url( get_current_blog_id(), $file ); ?>
 
         <div id="submitpost" class="submitbox">
 
@@ -254,7 +256,7 @@ class Sitemaps extends AbstractPage
                 </div>
 
                 <div id="publishing-action">
-                    <a href="#" class="seo-toolkit-ping button"><?php esc_html_e( 'Send', 'seo-toolkit' ); ?></a>
+                    <a href="#" class="seo-toolkit-ping button" data-sitemap="<?php echo esc_url( $sitemap ); ?>"><?php esc_html_e( 'Send', 'seo-toolkit' ); ?></a>
                 </div>
 
                 <div class="clear"></div>
@@ -274,10 +276,24 @@ class Sitemaps extends AbstractPage
     public function scripts()
     {
         $l10n = [
-            'nonce' => wp_create_nonce( 'seo-toolkit-sitemaps-ping' )
+            'nonce'     => wp_create_nonce( 'seo-toolkit-sitemaps-ping' ),
+            'error'     => __( 'Error', 'seo-toolkit' ),
+            'submitted' => __( 'The XML sitemap has been submitted.', 'seo-toolkit' )
         ];
         wp_localize_script( 'seo-toolkit-sitemaps', 'sitemaps_ping', $l10n );
 
         wp_enqueue_script( 'seo-toolkit-sitemaps' );
+    }
+
+    /**
+     * @since 1.1.0
+     */
+    private function getSitemapFile() {
+
+        $sitemaps_enabled = (bool) get_option( 'seo_toolkit_sitemaps_enabled', true );
+
+        $sitemap = $sitemaps_enabled ? 'sitemap.xml' : 'wp-sitemap.xml';
+
+        return $sitemap;
     }
 }

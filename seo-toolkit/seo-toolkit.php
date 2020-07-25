@@ -5,7 +5,7 @@
  * Description: SEO Toolkit is a smart plugin that assists you to optimize your website for purposes of SEO easily.
  * Author: SEO Toolkit
  * Author URI: https://www.seo-toolkit.page/
- * Version: 1.0.1
+ * Version: 1.1.0
  * License: GNU General Public License v2 or later
  * License URI: https://spdx.org/licenses/GPL-2.0-or-later.html
  * Text Domain: seo-toolkit

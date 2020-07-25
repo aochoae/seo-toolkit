@@ -34,24 +34,17 @@ class Sitemaps
      */
     private function __construct()
     {
-        add_filter( 'query_vars', [ $this, 'queryVars' ], 1, 1 );
+        $sitemaps_enabled = (bool) get_option( 'seo_toolkit_sitemaps_enabled', true );
 
-        add_filter( 'rewrite_rules_array', [ $this, 'rewriteRules' ], 1, 1 );
-
-        add_action( 'parse_query', [ $this, 'parseQuery' ], 1, 1 );
-
-        add_filter( 'seo_toolkit_sitemaps', [ $this, 'exclude' ], 10, 1 );
-
-        if ( 0 <> ( $frontpage = (int) get_option( 'page_on_front' ) ) ) {
-            add_filter( 'seo_toolkit_sitemap_page_ids', function( $ids ) use ( $frontpage ) {
-                unset( $ids[ $frontpage ] );
-                return $ids;
-            }, 99, 1 );
-        }
-
-        add_action( 'init', [ $this, 'complement' ] );
+        add_filter( 'wp_sitemaps_enabled', function() use ( $sitemaps_enabled ) {
+            return !$sitemaps_enabled;
+        }, 5, 1);
 
         add_action( 'init', [ $this, 'ping' ] );
+
+        if ( $sitemaps_enabled ) {
+            $this->init();
+        }
     }
 
     /**
@@ -68,6 +61,29 @@ class Sitemaps
         }
 
         return self::$instance;
+    }
+
+    /**
+     * @since 1.1.0
+     */
+    private function init() {
+
+        add_filter( 'query_vars', [ $this, 'queryVars' ], 1, 1 );
+
+        add_filter( 'rewrite_rules_array', [ $this, 'rewriteRules' ], 1, 1 );
+
+        add_action( 'parse_query', [ $this, 'parseQuery' ], 1, 1 );
+
+        add_filter( 'seo_toolkit_sitemaps', [ $this, 'exclude' ], 10, 1 );
+
+        if ( 0 <> ( $frontpage = (int) get_option( 'page_on_front' ) ) ) {
+            add_filter( 'seo_toolkit_sitemap_page_ids', function( $ids ) use ( $frontpage ) {
+                unset( $ids[ $frontpage ] );
+                return $ids;
+            }, 99, 1 );
+        }
+
+        add_action( 'init', [ $this, 'complement' ] );
     }
 
     /**

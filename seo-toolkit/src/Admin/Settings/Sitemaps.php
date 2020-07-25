@@ -194,6 +194,7 @@ class Sitemaps extends AbstractPage
                                 <input name="seo_toolkit_sitemaps_enabled" id="seo_toolkit_sitemaps_enabled"
                                     class="toggle" value="true" <?php checked( $sitemaps_enabled, true ); ?> type="checkbox">
                                 <span class="slider round"></span>
+                                <?php esc_html_e( 'Use this plugin to create XML sitemaps.', 'seo-toolkit' ); ?>
                             </label>
                         </div>
 

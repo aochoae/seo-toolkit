@@ -101,9 +101,15 @@ class Loader
             call_user_func( "$tool::newInstance" );
         }
 
-        if ( get_option( 'seo_toolkit_sitemaps_enabled', true ) ) {
+        $sitemaps_enabled = (bool) get_option( 'seo_toolkit_sitemaps_enabled', true );
+
+        if ( $sitemaps_enabled ) {
             \Toolkit\Sitemaps::newInstance();
         }
+
+        add_filter( 'wp_sitemaps_enabled', function() use ( $sitemaps_enabled ) {
+            return !$sitemaps_enabled;
+        }, 5, 1);
     }
 
     /**

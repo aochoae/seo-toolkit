@@ -8,7 +8,6 @@ jQuery(function($) {
         };
 
         $.post(ajaxurl, data, function(response) {
-            alert(response.data);
             location.reload();
         });
     });

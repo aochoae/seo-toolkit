@@ -44,9 +44,13 @@ Handle the version of the plugin
 
 ### Docker
 
-    docker-compose up -d
-    docker exec seo-toolkit chown -R www-data:www-data /var/www/html
-    sudo chown -R $USER:$USER seo-toolkit
+Create and start the container
+
+    docker compose up -d
+
+Stop and remove containers, networks, images, and volumes
+
+    docker compose down --volumes
 
 ## Credits
 

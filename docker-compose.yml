@@ -15,7 +15,7 @@ services:
     container_name: seo-toolkit
     depends_on:
       - db
-    image: wordpress:4.9.6-php5.6-apache
+    image: wordpress:latest
     ports:
       - "8080:80"
     environment:

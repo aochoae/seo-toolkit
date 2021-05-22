@@ -73,6 +73,9 @@ class Admin
             add_action( 'admin_init', [ $this, 'action' ] );
         }
 
+        /* Notices */
+        add_action( 'admin_notices', [ $this, 'notices' ] );
+
         /* Actions */
         Request::newInstance();
     }
@@ -91,6 +94,35 @@ class Admin
         }
 
         return self::$instance;
+    }
+
+    /**
+     * Prints admin screen notices.
+     *
+     * @since 1.1.0
+     *
+     * @return void
+     */
+    public function notices()
+    {
+        $permalink_structure = get_option( 'permalink_structure' );
+
+        if ( !empty( $permalink_structure ) ) {
+            return;
+        }
+
+        $settings_url = sprintf( '<a href="%s">%s</a>',
+            esc_url( admin_url( 'options-permalink.php' ) ),
+            esc_html__( 'Permalink Settings', 'seo-toolkit' )
+        );
+
+        $message = esc_html__( 'Choose an SEO-friendly permalink structure.', 'seo-toolkit' ); ?>
+
+        <div class="notice notice-warning">
+            <p><?php printf( '%s %s', $message, $settings_url ); ?></p>
+        </div>
+
+        <?php
     }
 
     /**

@@ -4,7 +4,7 @@ services:
   db:
     image: mysql:5.7
     volumes:
-      - db_data:/var/lib/mysql
+      - db:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: somewordpress
       MYSQL_DATABASE: wordpress
@@ -27,10 +27,9 @@ services:
         define( 'WP_DEBUG_LOG', true );
         define( 'SCRIPT_DEBUG', true );
         define( 'ENABLE_CACHE', true );
-
     volumes:
       - ./seo-toolkit:/var/www/html/wp-content/plugins/seo-toolkit
       - ./uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
 
 volumes:
-  db_data:
+  db:

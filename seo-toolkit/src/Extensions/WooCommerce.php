@@ -44,6 +44,8 @@ class WooCommerce
         add_filter( 'seo_toolkit_description_strings', [ $this, 'descriptionString' ], 15, 1 );
 
         add_filter( 'seo_toolkit_sitemap_product', [ $this, 'images'], 10, 2 );
+
+        remove_filter( 'wp_robots', 'wc_page_no_robots' );
     }
 
     /**

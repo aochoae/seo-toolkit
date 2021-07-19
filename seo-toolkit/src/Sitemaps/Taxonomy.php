@@ -58,8 +58,6 @@ class Taxonomy extends AbstractSitemap
         $root = $document->createElementNS( 'https://www.sitemaps.org/schemas/sitemap/0.9', 'urlset' );
         $document->appendChild( $root );
 
-        $output = '';
-
         $taxonomies = $this->getTaxonomies();
 
         $urlset = $document->getElementsByTagName( 'urlset' )->item(0);
@@ -71,9 +69,7 @@ class Taxonomy extends AbstractSitemap
             $urlset->appendChild( $url );
         }
 
-        $output = $document->saveXML();
-
-        return $output;
+        return $document->saveXML();
     }
 
     /**

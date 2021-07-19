@@ -76,7 +76,7 @@ class Title
      *
      * @return array
      */
-    public function title( $title )
+    public function title( $title_parts )
     {
         global $page, $paged;
 

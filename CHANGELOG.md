@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.1.0 (July 19, 2020)
+
+* Adds an options to choose WordPress XML Sitemap or Plugin XML Sitemap
+* Adds a notification to select the permalink strucure
+* Code cleanup
+
 ## v1.0.1 (September 20, 2019)
 
 * Updates the validate and sanitize filters
@@ -9,3 +15,4 @@
 ## v1.0.0 (September 18, 2019)
 
 * Initial release.
+

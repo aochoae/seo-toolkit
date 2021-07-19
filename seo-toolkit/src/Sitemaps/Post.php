@@ -67,8 +67,6 @@ class Post extends AbstractSitemap
             'https://www.google.com/schemas/sitemap-image/1.1'
         );
 
-        $output = '';
-
         $posts = $this->getPosts();
 
         $urlset = $document->getElementsByTagName( 'urlset' )->item(0);
@@ -91,9 +89,7 @@ class Post extends AbstractSitemap
             $urlset->appendChild( $url );
         }
 
-        $output = $document->saveXML();
-
-        return $output;
+        return $document->saveXML();
     }
 
     /**

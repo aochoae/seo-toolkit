@@ -1,22 +1,22 @@
-# Copyright (C) 2019 SEO Toolkit
-# This file is distributed under the same license as the SEO Toolkit plugin.
+# Copyright (C) 2021 SEO Toolkit
+# This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: SEO Toolkit 1.0.1\n"
+"Project-Id-Version: SEO Toolkit 1.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/seo-toolkit\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-09-20T12:41:06-05:00\n"
+"POT-Creation-Date: 2021-07-19T03:49:11+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.3.0\n"
+"X-Generator: WP-CLI 2.5.0\n"
 "X-Domain: seo-toolkit\n"
 
 #. Plugin Name of the plugin
 #. Author of the plugin
-#: src/Admin/Admin.php:137
+#: src/Admin/Admin.php:169
 msgid "SEO Toolkit"
 msgstr ""
 
@@ -32,40 +32,48 @@ msgstr ""
 msgid "https://www.seo-toolkit.page/"
 msgstr ""
 
-#: src/Admin/Admin.php:115
+#: src/Admin/Admin.php:116
+msgid "Permalink Settings"
+msgstr ""
+
+#: src/Admin/Admin.php:119
+msgid "Choose an SEO-friendly permalink structure."
+msgstr ""
+
+#: src/Admin/Admin.php:147
 msgid "Settings"
 msgstr ""
 
-#: src/Admin/Admin.php:136
+#: src/Admin/Admin.php:168
 #: src/Admin/Settings/General.php:199
 msgid "General Settings"
 msgstr ""
 
-#: src/Admin/Admin.php:158
+#: src/Admin/Admin.php:190
 msgid "Social Media Settings"
 msgstr ""
 
-#: src/Admin/Admin.php:159
+#: src/Admin/Admin.php:191
 #: src/Admin/Settings/SocialMedia.php:125
 msgid "Social Media"
 msgstr ""
 
-#: src/Admin/Admin.php:178
+#: src/Admin/Admin.php:210
 msgid "XML Sitemaps Settings"
 msgstr ""
 
-#: src/Admin/Admin.php:179
+#: src/Admin/Admin.php:211
 #: src/Admin/Settings/Sitemaps.php:107
 msgid "XML Sitemaps"
 msgstr ""
 
-#: src/Admin/Admin.php:198
-#: src/Admin/Admin.php:199
+#: src/Admin/Admin.php:230
+#: src/Admin/Admin.php:231
 #: src/Admin/Settings/Editor.php:64
 msgid "Editor"
 msgstr ""
 
-#: src/Admin/Admin.php:211
+#: src/Admin/Admin.php:243
 msgctxt "settings screen"
 msgid "General"
 msgstr ""
@@ -131,7 +139,7 @@ msgid "Choose Image"
 msgstr ""
 
 #: src/Admin/Posts/Facebook.php:62
-#: src/Loader.php:149
+#: src/Loader.php:146
 msgid "Facebook"
 msgstr ""
 
@@ -162,7 +170,7 @@ msgid "Use images that are at least 1080 pixels in width for best display on hig
 msgstr ""
 
 #: src/Admin/Posts/Twitter.php:62
-#: src/Loader.php:150
+#: src/Loader.php:147
 msgid "Twitter"
 msgstr ""
 
@@ -211,6 +219,7 @@ msgid "Security error has occurred."
 msgstr ""
 
 #: src/Admin/Request.php:66
+#: src/Admin/Settings/Sitemaps.php:280
 msgid "Error"
 msgstr ""
 
@@ -341,7 +350,7 @@ msgid "Get your code in <a href=\"https://webmaster.yandex.com/welcome/\" target
 msgstr ""
 
 #: src/Admin/Settings/General.php:590
-#: src/Loader.php:154
+#: src/Loader.php:151
 msgid "Pinterest"
 msgstr ""
 
@@ -426,24 +435,32 @@ msgstr ""
 msgid "Enable"
 msgstr ""
 
-#: src/Admin/Settings/Sitemaps.php:202
+#: src/Admin/Settings/Sitemaps.php:197
+msgid "Use this plugin to create XML sitemaps."
+msgstr ""
+
+#: src/Admin/Settings/Sitemaps.php:203
 msgid "Maximum URLs per sitemap"
 msgstr ""
 
-#: src/Admin/Settings/Sitemaps.php:209
+#: src/Admin/Settings/Sitemaps.php:210
 msgid "Images publishing"
 msgstr ""
 
-#: src/Admin/Settings/Sitemaps.php:213
+#: src/Admin/Settings/Sitemaps.php:214
 msgid "Your images can be found in Image Search results."
 msgstr ""
 
-#: src/Admin/Settings/Sitemaps.php:252
+#: src/Admin/Settings/Sitemaps.php:255
 msgid "View XML Sitemap"
 msgstr ""
 
-#: src/Admin/Settings/Sitemaps.php:256
+#: src/Admin/Settings/Sitemaps.php:259
 msgid "Send"
+msgstr ""
+
+#: src/Admin/Settings/Sitemaps.php:281
+msgid "The XML sitemap has been submitted."
 msgstr ""
 
 #: src/Admin/Settings/SocialMedia.php:168
@@ -545,23 +562,23 @@ msgstr ""
 msgid "Date"
 msgstr ""
 
-#: src/Extensions/WooCommerce.php:72
+#: src/Extensions/WooCommerce.php:74
 msgid "Shop page"
 msgstr ""
 
-#: src/Extensions/WooCommerce.php:199
+#: src/Extensions/WooCommerce.php:201
 msgid "Short product description"
 msgstr ""
 
-#: src/Loader.php:151
+#: src/Loader.php:148
 msgid "Instagram"
 msgstr ""
 
-#: src/Loader.php:152
+#: src/Loader.php:149
 msgid "YouTube"
 msgstr ""
 
-#: src/Loader.php:153
+#: src/Loader.php:150
 msgid "LinkedIn"
 msgstr ""
 

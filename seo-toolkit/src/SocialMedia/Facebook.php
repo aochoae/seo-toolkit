@@ -85,7 +85,7 @@ class Facebook
 
         $blog_id = get_current_blog_id();
 
-        $key = hash( 'md5', serialize( [ 'facebook-website', SEO_TOOLKIT_FILE, $blog_id ] ) );
+        $key = hash( 'sha384', serialize( [ 'facebook-website', SEO_TOOLKIT_FILE, $blog_id ] ) );
 
         if ( false === ( $opengraph = wp_cache_get( $key, 'seo_toolkit' ) ) ) {
 
@@ -143,7 +143,7 @@ class Facebook
 
         $post_id = get_queried_object_id();
 
-        $key = hash( 'md5', serialize( [ 'facebook-article', SEO_TOOLKIT_FILE, $post_id ] ) );
+        $key = hash( 'sha384', serialize( [ 'facebook-article', SEO_TOOLKIT_FILE, $post_id ] ) );
 
         if ( false === ( $opengraph = wp_cache_get( $key, 'seo_toolkit' ) ) ) {
 

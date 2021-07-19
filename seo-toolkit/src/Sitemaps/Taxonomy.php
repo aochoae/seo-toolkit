@@ -29,7 +29,7 @@ class Taxonomy extends AbstractSitemap
      */
     public function getSitemap()
     {
-        $key = hash( 'md5', serialize( [ "sitemap-{$this->taxonomy}", SEO_TOOLKIT_FILE, 'document' ] ) );
+        $key = hash( 'sha384', serialize( [ "sitemap-{$this->taxonomy}", SEO_TOOLKIT_FILE, 'document' ] ) );
 
         if ( false === ( $document = wp_cache_get( $key, 'seo_toolkit' ) ) ) {
 
@@ -55,7 +55,7 @@ class Taxonomy extends AbstractSitemap
         $xslt = $document->createProcessingInstruction( 'xml-stylesheet', "type=\"text/xsl\" href=\"{$xsl}\"" );
         $document->appendChild( $xslt );
 
-        $root = $document->createElementNS( 'http://www.sitemaps.org/schemas/sitemap/0.9', 'urlset' );
+        $root = $document->createElementNS( 'https://www.sitemaps.org/schemas/sitemap/0.9', 'urlset' );
         $document->appendChild( $root );
 
         $output = '';
@@ -103,7 +103,7 @@ class Taxonomy extends AbstractSitemap
      */
     private function getExcludeTaxonomies()
     {
-        $key = hash( 'md5', serialize( [ "sitemap-{$this->taxonomy}", SEO_TOOLKIT_FILE, 'database' ] ) );
+        $key = hash( 'sha384', serialize( [ "sitemap-{$this->taxonomy}", SEO_TOOLKIT_FILE, 'database' ] ) );
 
         if ( false === ( $ids = wp_cache_get( $key, 'seo_toolkit' ) ) ) {
 

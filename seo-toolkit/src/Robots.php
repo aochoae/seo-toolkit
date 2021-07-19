@@ -128,7 +128,7 @@ class Robots
 
         $post_id = get_the_ID();
 
-        $key = hash( 'md5', serialize( [ "robots-$context", SEO_TOOLKIT_FILE, $post_id ] ) );
+        $key = hash( 'sha384', serialize( [ "robots-$context", SEO_TOOLKIT_FILE, $post_id ] ) );
 
         if ( false === ( $robots = wp_cache_get( $key, 'seo_toolkit' ) ) ) {
 
@@ -178,7 +178,7 @@ class Robots
 
         $term_id = (int) get_queried_object_id();
 
-        $key = hash( 'md5', serialize( [ "robots-$context", SEO_TOOLKIT_FILE, $term_id ] ) );
+        $key = hash( 'sha384', serialize( [ "robots-$context", SEO_TOOLKIT_FILE, $term_id ] ) );
 
         if ( false === ( $robots = wp_cache_get( $key, 'seo_toolkit' ) ) ) {
 
@@ -213,7 +213,7 @@ class Robots
 
         $object_id = (int) get_queried_object_id();
 
-        $key = hash( 'md5', serialize( [ "robots-$context", SEO_TOOLKIT_FILE, $object_id ] ) );
+        $key = hash( 'sha384', serialize( [ "robots-$context", SEO_TOOLKIT_FILE, $object_id ] ) );
 
         if ( false === ( $robots = wp_cache_get( $key, 'seo_toolkit' ) ) ) {
 
@@ -244,7 +244,7 @@ class Robots
 
         $object_id = (int) get_queried_object_id();
 
-        $key = hash( 'md5', serialize( [ "robots-$context", SEO_TOOLKIT_FILE, $object_id ] ) );
+        $key = hash( 'sha384', serialize( [ "robots-$context", SEO_TOOLKIT_FILE, $object_id ] ) );
 
         if ( false === ( $robots = wp_cache_get( $key, 'seo_toolkit' ) ) ) {
 

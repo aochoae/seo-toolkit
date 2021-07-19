@@ -83,7 +83,7 @@ class Twitter
 
         $blog_id = get_current_blog_id();
 
-        $key = hash( 'md5', serialize( [ 'twitter-website', SEO_TOOLKIT_FILE, $blog_id ] ) );
+        $key = hash( 'sha384', serialize( [ 'twitter-website', SEO_TOOLKIT_FILE, $blog_id ] ) );
 
         if ( false === ( $cards = wp_cache_get( $key, 'seo_toolkit' ) ) ) {
 
@@ -148,7 +148,7 @@ class Twitter
 
         $post_id = get_queried_object_id();
 
-        $key = hash( 'md5', serialize( [ 'twitter-article', SEO_TOOLKIT_FILE, $post_id ] ) );
+        $key = hash( 'sha384', serialize( [ 'twitter-article', SEO_TOOLKIT_FILE, $post_id ] ) );
 
         if ( false === ( $cards = wp_cache_get( $key, 'seo_toolkit' ) ) ) {
 

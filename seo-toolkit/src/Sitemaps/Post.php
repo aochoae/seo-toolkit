@@ -29,7 +29,7 @@ class Post extends AbstractSitemap
      */
     public function getSitemap()
     {
-        $key = hash( 'md5', serialize( [ "sitemap-{$this->post_type}", SEO_TOOLKIT_FILE, 'document' ] ) );
+        $key = hash( 'sha384', serialize( [ "sitemap-{$this->post_type}", SEO_TOOLKIT_FILE, 'document' ] ) );
 
         if ( false === ( $document = wp_cache_get( $key, 'seo_toolkit' ) ) ) {
 
@@ -56,15 +56,15 @@ class Post extends AbstractSitemap
         $document->appendChild( $xslt );
 
         $root = $document->createElementNS(
-            'http://www.sitemaps.org/schemas/sitemap/0.9',
+            'https://www.sitemaps.org/schemas/sitemap/0.9',
             'urlset'
         );
         $document->appendChild( $root );
 
         $root->setAttributeNS(
-            'http://www.w3.org/2000/xmlns/',
+            'https://www.w3.org/2000/xmlns/',
             'xmlns:image',
-            'http://www.google.com/schemas/sitemap-image/1.1'
+            'https://www.google.com/schemas/sitemap-image/1.1'
         );
 
         $output = '';
@@ -124,7 +124,7 @@ class Post extends AbstractSitemap
      */
     private function getPostIds()
     {
-        $key = hash( 'md5', serialize( [ "sitemap-{$this->post_type}", SEO_TOOLKIT_FILE, 'database' ] ) );
+        $key = hash( 'sha384', serialize( [ "sitemap-{$this->post_type}", SEO_TOOLKIT_FILE, 'database' ] ) );
 
         if ( false === ( $ids = wp_cache_get( $key, 'seo_toolkit' ) ) ) {
 

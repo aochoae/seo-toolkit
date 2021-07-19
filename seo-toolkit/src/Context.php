@@ -28,7 +28,7 @@ class Context
      */
     public function getContexts()
     {
-        $key = hash( 'md5', serialize( [ 'contexts', SEO_TOOLKIT_FILE ] ) );
+        $key = hash( 'sha384', serialize( [ 'contexts', SEO_TOOLKIT_FILE ] ) );
 
         if ( false === ( $contexts = wp_cache_get( $key, 'seo_toolkit' ) ) ) {
 

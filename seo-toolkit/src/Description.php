@@ -96,7 +96,7 @@ class Description
 
         $blog_id = get_current_blog_id();
 
-        $key = hash( 'md5', serialize( [ 'description-frontpage', SEO_TOOLKIT_FILE, $blog_id ] ) );
+        $key = hash( 'sha384', serialize( [ 'description-frontpage', SEO_TOOLKIT_FILE, $blog_id ] ) );
 
         if ( false === ( $description = wp_cache_get( $key, 'seo_toolkit' ) ) ) {
 
@@ -145,7 +145,7 @@ class Description
 
         $page_id = (int) get_option( 'page_for_posts' );
 
-        $key = hash( 'md5', serialize( [ 'description-blog', SEO_TOOLKIT_FILE, $page_id ] ) );
+        $key = hash( 'sha384', serialize( [ 'description-blog', SEO_TOOLKIT_FILE, $page_id ] ) );
 
         if ( false === ( $description = wp_cache_get( $key, 'seo_toolkit' ) ) ) {
 
@@ -191,7 +191,7 @@ class Description
 
         $post_id = get_queried_object_id();
 
-        $key = hash( 'md5', serialize( [ "description-$context", SEO_TOOLKIT_FILE, $post_id ] ) );
+        $key = hash( 'sha384', serialize( [ "description-$context", SEO_TOOLKIT_FILE, $post_id ] ) );
 
         if ( false === ( $description = wp_cache_get( $key, 'seo_toolkit' ) ) ) {
 
@@ -237,7 +237,7 @@ class Description
 
         $term_id = (int) get_queried_object_id();
 
-        $key = hash( 'md5', serialize( [ "description-$context", SEO_TOOLKIT_FILE, $term_id ] ) );
+        $key = hash( 'sha384', serialize( [ "description-$context", SEO_TOOLKIT_FILE, $term_id ] ) );
 
         if ( false === ( $description = wp_cache_get( $key, 'seo_toolkit' ) ) ) {
 

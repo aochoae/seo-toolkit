@@ -12,9 +12,9 @@
  * Domain Path: /languages
  *
  * WC requires at least: 3.6
- * WC tested up to: 3.7
+ * WC tested up to: 5.5
  *
- * @package   SeoToolkit
+ * @package   Toolkit
  * @author    Luis A. Ochoa
  * @copyright 2019 Luis A. Ochoa
  * @license   GPL-2.0-or-later

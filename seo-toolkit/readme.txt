@@ -1,5 +1,5 @@
 === SEO Toolkit ===
-Contributors: seotoolkit
+Contributors: seotoolkit, aochoae
 Tags: seo, google, bing, yandex, xml sitemap, image xml sitemap, structured data, woocommerce
 Requires at least: 4.9
 Tested up to: 5.8

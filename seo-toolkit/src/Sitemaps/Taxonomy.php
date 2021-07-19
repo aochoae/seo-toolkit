@@ -55,7 +55,7 @@ class Taxonomy extends AbstractSitemap
         $xslt = $document->createProcessingInstruction( 'xml-stylesheet', "type=\"text/xsl\" href=\"{$xsl}\"" );
         $document->appendChild( $xslt );
 
-        $root = $document->createElementNS( 'https://www.sitemaps.org/schemas/sitemap/0.9', 'urlset' );
+        $root = $document->createElementNS( 'http://www.sitemaps.org/schemas/sitemap/0.9', 'urlset' );
         $document->appendChild( $root );
 
         $taxonomies = $this->getTaxonomies();

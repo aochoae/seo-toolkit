@@ -54,7 +54,7 @@ class Home extends AbstractSitemap
         $xslt = $document->createProcessingInstruction( 'xml-stylesheet', "type=\"text/xsl\" href=\"{$xsl}\"" );
         $document->appendChild( $xslt );
 
-        $element = $document->createElementNS( 'https://www.sitemaps.org/schemas/sitemap/0.9', 'urlset' );
+        $element = $document->createElementNS( 'http://www.sitemaps.org/schemas/sitemap/0.9', 'urlset' );
         $document->appendChild( $element );
 
         $home = $this->getHome();

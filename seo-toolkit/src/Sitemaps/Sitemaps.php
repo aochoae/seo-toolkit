@@ -59,7 +59,7 @@ class Sitemaps extends AbstractSitemap
         $xslt = $document->createProcessingInstruction( 'xml-stylesheet', "type=\"text/xsl\" href=\"{$xsl}\"" );
         $document->appendChild( $xslt );
 
-        $root = $document->createElementNS( 'https://www.sitemaps.org/schemas/sitemap/0.9', 'sitemapindex' );
+        $root = $document->createElementNS( 'http://www.sitemaps.org/schemas/sitemap/0.9', 'sitemapindex' );
         $document->appendChild( $root );
 
         $home_url = get_home_url( get_current_blog_id() );

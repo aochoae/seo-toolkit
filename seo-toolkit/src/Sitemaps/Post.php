@@ -56,15 +56,15 @@ class Post extends AbstractSitemap
         $document->appendChild( $xslt );
 
         $root = $document->createElementNS(
-            'https://www.sitemaps.org/schemas/sitemap/0.9',
+            'http://www.sitemaps.org/schemas/sitemap/0.9',
             'urlset'
         );
         $document->appendChild( $root );
 
         $root->setAttributeNS(
-            'https://www.w3.org/2000/xmlns/',
+            'http://www.w3.org/2000/xmlns/',
             'xmlns:image',
-            'https://www.google.com/schemas/sitemap-image/1.1'
+            'http://www.google.com/schemas/sitemap-image/1.1'
         );
 
         $posts = $this->getPosts();

@@ -2,7 +2,7 @@
     "name": "seo-toolkit/seo-toolkit",
     "type": "wordpress-plugin",
     "description": "SEO Toolkit is a smart plugin that assists you to optimize your website for purposes of SEO easily.",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "license": "GPL-2.0-or-later",
     "authors": [
         {

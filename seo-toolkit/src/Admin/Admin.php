@@ -132,7 +132,7 @@ class Admin
      */
     public function action()
     {
-        add_filter( 'plugin_action_links', function( $actions, $plugin_file, $plugin_data, $context ) {
+        add_filter( 'plugin_action_links', function( $actions, $plugin_file ) {
 
             if ( $this->plugin_file !== $plugin_file ) {
                 return $actions;
@@ -147,7 +147,7 @@ class Admin
             $new_actions[ 'settings' ] = sprintf( '<a href="%s">%s</a>', esc_url( $settings ), esc_html__( 'Settings', 'seo-toolkit' ) );
 
             return array_merge( $actions, $new_actions );
-        }, 10, 4 );
+        }, 10, 2 );
     }
 
     /**

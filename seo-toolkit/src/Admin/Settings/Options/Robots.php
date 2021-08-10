@@ -68,20 +68,17 @@ class Robots
             'index, nofollow'
         ];
 
-        $format[ 'search' ] = [
+        $_none = [
             'noindex',
             'noindex, nofollow'
         ];
 
-        $format[ 'error' ] = [
-            'noindex',
-            'noindex, nofollow'
-        ];
+        $format[ 'search' ] = $_none;
+
+        $format[ 'error' ] = $_none;
 
         $format = apply_filters( 'seo_toolkit_robots_format', $format, $context );
 
-        $values = isset( $format[ $context ] ) ? $format[ $context ] : $format[ 'default' ];
-
-        return $values;
+        return isset( $format[ $context ] ) ? $format[ $context ] : $format[ 'default' ];
     }
 }

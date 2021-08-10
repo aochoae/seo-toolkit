@@ -129,7 +129,7 @@ class Editor extends AbstractPage
             printf( '<div class="notice notice-warning is-dismissible"><p>%s</p></div>', esc_html( $message ) );
         }
 
-        if ( true == filter_input( INPUT_GET, 'saved', FILTER_VALIDATE_BOOLEAN ) ) {
+        if ( filter_input( INPUT_GET, 'saved', FILTER_VALIDATE_BOOLEAN ) ) {
 
             $message = __( 'The robots.txt file has been saved.', 'seo-toolkit' );
 

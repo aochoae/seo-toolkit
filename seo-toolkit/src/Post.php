@@ -34,12 +34,10 @@ class Post
      */
     public function getTitle()
     {
-        $post_id = $this->post_id;
-
-        $title = get_post_meta( $post_id, '_seo_toolkit_title', true );
+        $title = get_post_meta( $this->post_id, '_seo_toolkit_title', true );
 
         if ( empty( $title ) ) {
-            $title = get_post_field( 'post_title', $post_id );
+            $title = get_post_field( 'post_title', $this->post_id );
         }
 
         return wp_strip_all_tags( $title );
@@ -89,10 +87,8 @@ class Post
      */
     public function getImage()
     {
-        $post_id = $this->post_id;
-
-        if ( has_post_thumbnail( $post_id ) ) {
-            return get_post_thumbnail_id( $post_id );
+        if ( has_post_thumbnail( $this->post_id ) ) {
+            return get_post_thumbnail_id( $this->post_id );
         }
 
         return 0;
@@ -105,9 +101,7 @@ class Post
      */
     public function getGallery()
     {
-        $post_id = $this->post_id;
-
-        $post = get_post( $post_id );
+        $post = get_post( $this->post_id );
 
         $ids = [];
 
@@ -116,15 +110,13 @@ class Post
             $blocks = parse_blocks( $post->post_content );
 
             foreach( $blocks as $block ) {
-                if ( 'core/gallery' == $block['blockName'] ) {
-                    if ( isset( $block['attrs']['ids'] ) ) {
-                        $ids = array_merge( $ids, $block['attrs']['ids'] );
-                    }
+                if ( 'core/gallery' == $block['blockName'] && isset( $block['attrs']['ids'] ) ) {
+                    $ids = array_merge( $ids, $block['attrs']['ids'] );
                 }
             }
         }
 
-        if ( $galleries = get_post_galleries( $post_id, false ) ) {
+        if ( $galleries = get_post_galleries( $this->post_id, false ) ) {
 
             foreach( $galleries as $gallery ) {
 

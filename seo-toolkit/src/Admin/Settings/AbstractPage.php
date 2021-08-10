@@ -34,17 +34,17 @@ abstract class AbstractPage
 
         <div class="plugin-information">
 
-            <table class="form-table">
+            <table class="form-table" aria-label="<?php esc_html_e( 'Plugin Information', 'seo-toolkit' ); ?>">
                 <tr>
-                    <th scope="row">Name:</th>
+                <th scope="row"><?php esc_html_e( 'Name:', 'seo-toolkit' ); ?></th>
                     <td><?php echo esc_html( $plugin[ 'Name' ] ); ?></td>
                 </tr>
                 <tr>
-                    <th scope="row">Version:</th>
+                <th scope="row"><?php esc_html_e( 'Version:', 'seo-toolkit' ); ?></th>
                     <td><?php echo esc_html( $plugin[ 'Version' ] ); ?></td>
                 </tr>
                 <tr>
-                    <th scope="row">License:</th>
+                <th scope="row"><?php esc_html_e( 'License:', 'seo-toolkit' ); ?></th>
                     <td><?php echo '<a href="https://spdx.org/licenses/GPL-2.0-or-later.html">GPL-2.0-or-later</a>'; ?></td>
                 </tr>
             </table>

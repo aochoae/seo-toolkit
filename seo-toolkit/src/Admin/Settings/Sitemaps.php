@@ -252,7 +252,7 @@ class Sitemaps extends AbstractPage
             <div id="major-publishing-actions">
 
                 <div id="delete-action">
-                    <a href="<?php echo esc_url( $sitemap ); ?>" target="_blank"><?php esc_html_e( 'View XML Sitemap', 'seo-toolkit' ); ?></a>
+                    <a href="<?php echo esc_url( $sitemap ); ?>" target="_blank" rel="noopener"><?php esc_html_e( 'View XML Sitemap', 'seo-toolkit' ); ?></a>
                 </div>
 
                 <div id="publishing-action">
@@ -292,8 +292,6 @@ class Sitemaps extends AbstractPage
 
         $sitemaps_enabled = (bool) get_option( 'seo_toolkit_sitemaps_enabled', true );
 
-        $sitemap = $sitemaps_enabled ? 'sitemap.xml' : 'wp-sitemap.xml';
-
-        return $sitemap;
+        return $sitemaps_enabled ? 'sitemap.xml' : 'wp-sitemap.xml';
     }
 }

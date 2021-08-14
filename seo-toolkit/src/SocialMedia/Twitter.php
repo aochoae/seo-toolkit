@@ -31,7 +31,7 @@ class Twitter
     {
         add_filter( 'seo_toolkit_twitter_cards', [ $this, 'website' ], 10, 2 );
 
-        add_filter( 'seo_toolkit_twitter_cards', [ $this, 'article' ], 10, 2 );
+        add_filter( 'seo_toolkit_twitter_cards', [ $this, 'article' ], 10, 1 );
 
         add_filter( 'seo_toolkit_metadata', [ $this, 'metatags' ], 6, 2 );
     }
@@ -140,7 +140,7 @@ class Twitter
      *
      * @since 1.0.0
      */
-    public function article( $metatags, $context )
+    public function article( $metatags )
     {
         if ( ! is_singular() ) {
             return $metatags;

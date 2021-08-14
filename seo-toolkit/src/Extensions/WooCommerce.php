@@ -31,11 +31,11 @@ class WooCommerce
 
         add_filter( 'seo_toolkit_description_product', [ $this, 'product' ], 10, 3 );
 
-        add_filter( 'seo_toolkit_description_product_archive', [ $this, 'shop' ], 10, 3 );
+        add_filter( 'seo_toolkit_description_product_archive', [ $this, 'shop' ], 10, 2 );
 
-        add_filter( 'seo_toolkit_description_page', [ $this, 'description' ], 10, 3 );
+        add_filter( 'seo_toolkit_description_page', [ $this, 'description' ], 10, 1 );
 
-        add_filter( 'seo_toolkit_robots_page', [ $this, 'robots' ], 10, 3 );
+        add_filter( 'seo_toolkit_robots_page', [ $this, 'robots' ], 10, 1 );
 
         add_filter( 'seo_toolkit_sitemap_page_ids', [ $this, 'sitemap' ], 20, 1 );
 
@@ -95,7 +95,7 @@ class WooCommerce
      *
      * @since 1.0.0
      */
-    public function shop( $description, $option, $object_id )
+    public function shop( $description, $option )
     {
         if ( empty( $description ) && '%description%' == $option ) {
             $description = get_post_field( 'post_excerpt', wc_get_page_id( 'shop' ) );
@@ -110,7 +110,7 @@ class WooCommerce
      *
      * @since 1.0.0
      */
-    public function description( $description, $option, $post_id )
+    public function description( $description )
     {
         if ( is_cart() || is_checkout() || is_account_page() ) {
             return '';
@@ -125,7 +125,7 @@ class WooCommerce
      *
      * @since 1.0.0
      */
-    public function robots( $robots, $option, $post_id )
+    public function robots( $robots )
     {
         if ( is_cart() || is_checkout() || is_account_page() ) {
             return [ [ 'robots' => 'noindex, nofollow' ] ];
@@ -161,21 +161,10 @@ class WooCommerce
      */
     public function options( $format, $context )
     {
-        switch( $context ) {
-            case 'product':
-                $format[ 'product' ] = [
-                    '%short_description%',
-                    '%none%'
-                ];
-                break;
-            case 'product_tag':
-            case 'product_cat':
-            case 'product_archive':
-                $format[ $context ] = [
-                    '%description%',
-                    '%none%'
-                ];
-                break;
+        if ( $context == 'product' ) {
+            $format[ 'product' ] = ['%short_description%', '%none%'];
+        } elseif ( in_array( $context, ['product_tag', 'product_cat', 'product_archive'] ) ) {
+            $format[ $context ] = ['%description%', '%none%' ];
         }
 
         return $format;

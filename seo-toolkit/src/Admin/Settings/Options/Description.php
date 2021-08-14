@@ -116,13 +116,13 @@ class Description
 
             $options = explode( " ", $key );
 
-            $auxiliar = [];
+            $auxiliary = [];
 
             foreach( $options as $option ) {
-                $auxiliar[] = $this->getString( $option );
+                $auxiliary[] = $this->getString( $option );
             }
 
-            $return[ $key ] = join( ' ', $auxiliar );
+            $return[ $key ] = join( ' ', $auxiliary );
         }
 
         return $return;

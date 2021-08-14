@@ -27,7 +27,7 @@ class Twitter
      */
     private function __construct()
     {
-        add_filter( 'seo_toolkit_posts_tabs', [ $this, 'panel' ], 10, 3 );
+        add_filter( 'seo_toolkit_posts_tabs', [ $this, 'panel' ], 10, 1 );
 
         add_action( 'seo_toolkit_posts_tabs_content', [ $this, 'content' ], 10, 2 );
 
@@ -55,7 +55,7 @@ class Twitter
      *
      * @since 1.0.0
      */
-    public function panel( $tabs, $post_type, $post_id )
+    public function panel( $tabs )
     {
         $twitter = [
             'twitter' => [
@@ -74,7 +74,9 @@ class Twitter
      */
     public function content( $post_type, $post_id )
     {
-        wp_nonce_field( "seo-toolkit-twitter-{$post_id}-save", "seo-toolkit-twitter-{$post_id}-nonce" ); ?>
+        wp_nonce_field( "seo-toolkit-twitter-{$post_id}-save", "seo-toolkit-twitter-{$post_id}-nonce" );
+
+        do_action( 'seo_toolkit_twitter_before_panel', $post_type, $post_id ); ?>
 
         <div id="toolbox-twitter" class="seo-toolkit-panel">
 
@@ -118,6 +120,8 @@ class Twitter
         </div>
 
         <?php
+
+        do_action( 'seo_toolkit_twitter_after_panel', $post_type, $post_id );
     }
 
     /**

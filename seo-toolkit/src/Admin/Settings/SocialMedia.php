@@ -349,10 +349,10 @@ class SocialMedia extends AbstractPage
         wp_enqueue_media();
 
         $l10n = [
-            'profile'  => esc_html_x( 'Logo',         'wp.media', 'seo-toolkit' ),
-            'facebook' => esc_html_x( 'Facebook',     'wp.media', 'seo-toolkit' ),
-            'twitter'  => esc_html_x( 'Twitter',      'wp.media', 'seo-toolkit' ),
-            'button'   => esc_html_x( 'Choose Image', 'wp.media', 'seo-toolkit' )
+            'profile'  => esc_html__( 'Logo',         'seo-toolkit' ),
+            'facebook' => esc_html__( 'Facebook',     'seo-toolkit' ),
+            'twitter'  => esc_html__( 'Twitter',      'seo-toolkit' ),
+            'button'   => esc_html__( 'Choose Image', 'seo-toolkit' )
         ];
         wp_localize_script( 'seo-toolkit-upload', 'socialmedia_upload', $l10n );
 

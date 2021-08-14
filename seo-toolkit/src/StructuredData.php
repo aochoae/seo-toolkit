@@ -90,14 +90,11 @@ class StructuredData
 
         $profile = isset( $website['profile'] ) ? $website['profile'] : '';
 
-        switch( $profile ) {
-        case 'person':
+        if ( 'person' == $profile ) {
             new \Toolkit\StructuredData\Person;
-            break;
-        case 'organization':
+        } else {
             new \Toolkit\StructuredData\Organization;
-            break;
-	    }
+        }
     }
 
     /**

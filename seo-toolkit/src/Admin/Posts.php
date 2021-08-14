@@ -246,9 +246,9 @@ class Posts
         wp_enqueue_style( 'seo-toolkit-style' );
 
         $l10n = [
-            'facebook' => esc_html_x( 'Facebook',     'Post Facebook wp.media', 'seo-toolkit' ),
-            'twitter'  => esc_html_x( 'Twitter',      'Post Twitter wp.media', 'seo-toolkit' ),
-            'button'   => esc_html_x( 'Choose Image', 'Post button wp.media', 'seo-toolkit' )
+            'facebook' => esc_html__( 'Facebook',     'seo-toolkit' ),
+            'twitter'  => esc_html__( 'Twitter',      'seo-toolkit' ),
+            'button'   => esc_html__( 'Choose Image', 'seo-toolkit' )
         ];
         wp_localize_script( 'seo-toolkit-script', 'socialmedia_upload', $l10n );
 

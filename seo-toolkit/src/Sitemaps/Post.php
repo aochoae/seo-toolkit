@@ -80,7 +80,7 @@ class Post extends AbstractSitemap
             $url->appendChild( $document->createElement( 'changefreq', $post['changefreq'] ) );
 
             if ( isset( $post['images'] ) && ! empty( $post['images'] ) ) {
-                foreach( $post['images'] as $idx => $image ) {
+                foreach( $post['images'] as $image ) {
                     $images = $url->appendChild( $document->createElement( 'image:image' ) );
                     $images->appendChild( $document->createElement( 'image:loc', $image['loc'] ) );
                 }

@@ -49,7 +49,7 @@ class Description
 
         add_filter( 'seo_toolkit_description', [ $this, 'taxonomies' ], 10, 2 );
 
-        add_filter( 'seo_toolkit_description', [ $this, 'paginated' ], 10, 2 );
+        add_filter( 'seo_toolkit_description', [ $this, 'paginated' ], 10, 1 );
 
         add_filter( 'seo_toolkit_metadata', [ $this, 'metatags' ], 2, 2 );
     }
@@ -274,7 +274,7 @@ class Description
      *
      * @since 1.0.0
      */
-    public function paginated( $description, $context )
+    public function paginated( $description )
     {
         if ( is_paged() ) {
             return '';

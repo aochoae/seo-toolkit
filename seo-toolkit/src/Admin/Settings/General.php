@@ -632,9 +632,9 @@ class General extends AbstractPage
         wp_enqueue_media();
 
         $l10n = [
-            'organization' => esc_html_x( 'Organization Logo', 'General settings', 'seo-toolkit' ),
-            'person'       => esc_html_x( 'Picture',           'General settings', 'seo-toolkit' ),
-            'button'       => esc_html_x( 'Choose Image',      'General settings', 'seo-toolkit' )
+            'organization' => esc_html__( 'Organization Logo', 'seo-toolkit' ),
+            'person'       => esc_html__( 'Picture',           'seo-toolkit' ),
+            'button'       => esc_html__( 'Choose Image',      'seo-toolkit' )
         ];
         wp_localize_script( 'seo-toolkit-upload', 'socialmedia_upload', $l10n );
 

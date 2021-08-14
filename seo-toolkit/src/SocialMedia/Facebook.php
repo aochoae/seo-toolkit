@@ -31,9 +31,9 @@ class Facebook
     {
         add_filter( 'seo_toolkit_open_graph', [ $this, 'website' ], 10, 2 );
 
-        add_filter( 'seo_toolkit_open_graph', [ $this, 'article' ], 10, 2 );
+        add_filter( 'seo_toolkit_open_graph', [ $this, 'article' ], 10, 1 );
 
-        add_filter( 'seo_toolkit_open_graph', [ $this, 'facebook' ], 10, 2 );
+        add_filter( 'seo_toolkit_open_graph', [ $this, 'facebook' ], 10, 1 );
 
         add_filter( 'seo_toolkit_metadata_property', [ $this, 'metatags' ], 4, 2 );
     }
@@ -135,7 +135,7 @@ class Facebook
      *
      * @since 1.0.0
      */
-    public function article( $metatags, $context )
+    public function article( $metatags )
     {
         if ( ! is_singular() ) {
             return $metatags;
@@ -208,7 +208,7 @@ class Facebook
      *
      * @since 1.0.0
      */
-    public function facebook( $metatags, $context )
+    public function facebook( $metatags )
     {
         if ( ! is_front_page() || ! is_singular() ) {
             return $metatags;

@@ -9,3 +9,4 @@ build/
 .svn/
 *.zip
 .idea/
+wp-cli.phar

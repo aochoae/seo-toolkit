@@ -83,10 +83,8 @@ class WooCommerce
      */
     public function product( $description, $option, $post_id )
     {
-        switch( $option ) {
-            case '%short_description%':
-                $description = get_post_field( 'post_excerpt', $post_id );
-                break;
+        if ( '%short_description%' == $option ) {
+            $description = get_post_field( 'post_excerpt', $post_id );
         }
 
         return $description;
@@ -100,14 +98,7 @@ class WooCommerce
     public function shop( $description, $option, $object_id )
     {
         if ( empty( $description ) && '%description%' == $option ) {
-
-            $shop_id = wc_get_page_id( 'shop' );
-
-            switch( $option ) {
-                case '%description%':
-                    $description = get_post_field( 'post_excerpt', $shop_id );
-                    break;
-            }
+            $description = get_post_field( 'post_excerpt', wc_get_page_id( 'shop' ) );
         }
 
         return $description;

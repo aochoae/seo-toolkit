@@ -175,6 +175,8 @@ class Facebook
             ];
 
             /* Image */
+            $_images = '';
+
             if( $image = (int) get_post_field( '_seo_toolkit_facebook_image', $post_id ) ) {
 
                 $image_id = attachment_url_to_postid( $image );
@@ -189,6 +191,10 @@ class Facebook
             /* Gallery */
             elseif ( $gallery = $post->getGallery() ) {
                 $opengraph['og:images'] = iterator_to_array( $this->getImages( $gallery ) );
+            }
+
+            if ( !empty( $_images ) ) {
+                $opengraph = $_images;
             }
 
             wp_cache_set( $key, $opengraph, 'seo_toolkit', DAY_IN_SECONDS );

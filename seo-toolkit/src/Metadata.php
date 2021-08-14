@@ -56,9 +56,9 @@ class Metadata
     {
         $metatags = apply_filters( 'seo_toolkit_metadata', [], $context );
 
-        $metatags = array_filter( $metatags, function( $v, $k ) {
+        $metatags = array_filter( $metatags, function( $v ) {
             return ! empty( $v );
-        }, ARRAY_FILTER_USE_BOTH );
+        } );
 
         if ( empty( $metatags ) ) {
             return;
@@ -66,12 +66,12 @@ class Metadata
 
         $print = function( $metatags ) use ( &$print ) {
 
-            foreach( $metatags as $property => $content ) {
+            foreach( $metatags as $name => $content ) {
 
                 if ( is_array( $content ) ) {
                     $print( $content );
                 } else {
-                    printf( '<meta name="%s" content="%s" />' . PHP_EOL, esc_attr( $property ), esc_attr( $content ) );
+                    printf( '<meta name="%s" content="%s" />' . PHP_EOL, esc_attr( $name ), esc_attr( $content ) );
                 }
             }
         };
@@ -88,9 +88,9 @@ class Metadata
     {
         $metatags = apply_filters( 'seo_toolkit_metadata_property', [], $context );
 
-        $metatags = array_filter( $metatags, function( $v, $k ) {
+        $metatags = array_filter( $metatags, function( $v ) {
             return ! empty( $v );
-        }, ARRAY_FILTER_USE_BOTH );
+        } );
 
         if ( empty( $metatags ) ) {
             return;

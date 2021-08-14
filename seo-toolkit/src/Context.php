@@ -63,7 +63,7 @@ class Context
         }
 
         /* Taxonomies */
-        $taxonomies = get_taxonomies( [ 'public'   => true, '_builtin' => true ], 'objects' );
+        $taxonomies = get_taxonomies( [ 'public' => true, '_builtin' => true ], 'objects' );
 
         foreach( $taxonomies as $taxonomy ) {
             $context[ $taxonomy->name ] = $taxonomy->labels->name;
@@ -82,7 +82,7 @@ class Context
                 $context[ $taxonomy->name ] = $taxonomy->labels->name;
             }
 
-            if ( true == $post_type->has_archive ) { /* translators: %s: post type label name */
+            if ( $post_type->has_archive ) { /* translators: %s: post type label name */
                 $context[ "{$post_type->name}_archive" ] = sprintf( __( '%s archive', 'seo-toolkit' ), $post_type->labels->name );
             }
         }

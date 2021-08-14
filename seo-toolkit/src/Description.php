@@ -28,6 +28,11 @@ class Description
     private static $instance;
 
     /**
+     * @since 1.2.0
+     */
+    const POST_META_DESCRIPTION = '_seo_toolkit_description';
+
+    /**
      * Constructor.
      *
      * @since 1.0.0
@@ -103,7 +108,7 @@ class Description
             $description = '';
 
             if ( 0 !== ( $page_id = get_option( 'page_on_front' ) ) ) {
-                $description = get_post_meta( $page_id, '_seo_toolkit_description', true );
+                $description = get_post_meta( $page_id, self::POST_META_DESCRIPTION, true );
             }
 
             if ( empty( $description ) ) {
@@ -149,7 +154,7 @@ class Description
 
         if ( false === ( $description = wp_cache_get( $key, 'seo_toolkit' ) ) ) {
 
-            $description = get_post_meta( $page_id, '_seo_toolkit_description', true );
+            $description = get_post_meta( $page_id, self::POST_META_DESCRIPTION, true );
 
             $option = '';
 
@@ -159,7 +164,7 @@ class Description
 
                 switch ( $option ) {
                     case '%excerpt%':
-                        $description = get_post_field( 'post_excerpt', $post_id );
+                        $description = get_post_field( 'post_excerpt', $page_id );
                         break;
                     case '%tagline%':
                         $description = get_bloginfo( 'description', 'display' );
@@ -195,7 +200,7 @@ class Description
 
         if ( false === ( $description = wp_cache_get( $key, 'seo_toolkit' ) ) ) {
 
-            $description = get_post_meta( $post_id, '_seo_toolkit_description', true );
+            $description = get_post_meta( $post_id, self::POST_META_DESCRIPTION, true );
 
             $option = '';
 
@@ -203,12 +208,10 @@ class Description
 
                 $option = isset( $this->settings[ $context ] ) ? $this->settings[ $context ]: '%excerpt%';
 
-                switch ( $option ) {
-                    case '%excerpt%':
-                        $description = get_post_field( 'post_excerpt', $post_id );
-                        break;
-                    default:
-                        $description = '';
+                if ( $option == '%excerpt%' ) {
+                    $description = get_post_field( 'post_excerpt', $post_id );
+                } else {
+                    $description = '';
                 }
             }
 
@@ -245,7 +248,7 @@ class Description
 
             switch ( $option ) {
                 case '%description%':
-                    $description = get_term_meta( $term_id, '_seo_toolkit_description', true );
+                    $description = get_term_meta( $term_id, self::POST_META_DESCRIPTION, true );
 
                     if ( empty( $description ) ) {
                         $description = term_description( $term_id );

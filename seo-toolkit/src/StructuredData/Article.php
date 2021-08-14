@@ -62,14 +62,12 @@ class Article extends AbstractStructuredData
      */
     private function getAuthor( $user_id )
     {
-        $schema = [
+        return [
             '@type' => [ 'Person' ],
             'name'  => get_the_author_meta( 'display_name', $user_id ),
             'url'   => esc_url( get_author_posts_url( $user_id ) ),
             'image' => esc_url( get_avatar_url( $user_id, [ 'size' => 256 ] ) )
         ];
-
-        return $schema;
     }
 
     /**

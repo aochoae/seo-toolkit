@@ -140,7 +140,7 @@ class Loader
         add_post_type_support( 'page', 'excerpt' );
 
         /* Adds contact methods */
-        add_filter( 'user_contactmethods', function( $methods, $user ) {
+        add_filter( 'user_contactmethods', function( $methods ) {
 
             $new_methods = [
                 'facebook'  => __( 'Facebook',  'seo-toolkit' ),
@@ -152,7 +152,7 @@ class Loader
             ];
 
             return array_merge( $methods, $new_methods );
-        }, 10, 2 );
+        }, 10, 1 );
     }
 
     /**

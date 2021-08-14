@@ -281,7 +281,7 @@ class General extends AbstractPage
                 <div id="seo-toolkit-metatags" class="seo-toolkit-tabs seo-toolkit-tabs-container">
 
                     <ul class="tabs tabs-nav">
-                    <?php foreach( $data as $key => $tab ) :  ?>
+                    <?php foreach( $data as $tab ) :  ?>
                         <li><a href="#<?php echo esc_attr( $tab[ 'panel' ] ); ?>"><?php echo esc_html( $tab[ 'label' ] ); ?></a></li>
                     <?php endforeach; ?>
                     </ul>
@@ -451,7 +451,7 @@ class General extends AbstractPage
                 <div id="seo-toolkit-profile" class="seo-toolkit-tabs seo-toolkit-tabs-container">
 
                     <ul class="tabs tabs-nav">
-                    <?php foreach( $data as $key => $tab ) :  ?>
+                    <?php foreach( $data as $tab ) :  ?>
                         <li><a href="#<?php echo esc_attr( $tab[ 'panel' ] ); ?>"><?php echo esc_html( $tab[ 'label' ] ); ?></a></li>
                     <?php endforeach; ?>
                     </ul>
@@ -554,7 +554,7 @@ class General extends AbstractPage
                 <div id="seo-toolkit-verification" class="seo-toolkit-tabs seo-toolkit-tabs-container">
 
                     <ul class="tabs tabs-nav">
-                    <?php foreach( $data as $key => $tab ) :  ?>
+                    <?php foreach( $data as $tab ) :  ?>
                         <li><a href="#<?php echo esc_attr( $tab[ 'panel' ] ); ?>"><?php echo esc_html( $tab[ 'label' ] ); ?></a></li>
                     <?php endforeach; ?>
                     </ul>
@@ -632,9 +632,9 @@ class General extends AbstractPage
         wp_enqueue_media();
 
         $l10n = [
-            'organization' => esc_html_x( 'Organization Logo', 'wp.media', 'seo-toolkit' ),
-            'person'       => esc_html_x( 'Picture',           'wp.media', 'seo-toolkit' ),
-            'button'       => esc_html_x( 'Choose Image',      'wp.media', 'seo-toolkit' )
+            'organization' => esc_html_x( 'Organization Logo', 'General settings', 'seo-toolkit' ),
+            'person'       => esc_html_x( 'Picture',           'General settings', 'seo-toolkit' ),
+            'button'       => esc_html_x( 'Choose Image',      'General settings', 'seo-toolkit' )
         ];
         wp_localize_script( 'seo-toolkit-upload', 'socialmedia_upload', $l10n );
 

@@ -77,8 +77,6 @@ class Organization extends AbstractStructuredData
      */
     private function logo( $organization )
     {
-        $logo = isset( $organization['logo'] ) ? $organization['logo'] : '';
-
-        return $logo;
+        return isset( $organization['logo'] ) ? $organization['logo'] : '';
     }
 }

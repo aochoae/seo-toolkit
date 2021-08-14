@@ -165,9 +165,6 @@ body[class*='seo-toolkit'] .postbox .plugin-information .form-table td {
     width: 50%;
 }
 
-/* Small devices (landscape phones, 576px and up) */
-@media (min-width: 576px) {}
-
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
 
@@ -187,12 +184,6 @@ body[class*='seo-toolkit'] .postbox .plugin-information .form-table td {
         margin-bottom: 0;
     }
 
-    .wp-admin .seo-toolkit-tabs.ui-widget > .seo-toolkit-panel .form-field input[type="text"],
-    .wp-admin .seo-toolkit-tabs.ui-widget > .seo-toolkit-panel .form-field input[type="number"],
-    .wp-admin .seo-toolkit-tabs.ui-widget > .seo-toolkit-panel .form-field textarea,
-    .wp-admin .seo-toolkit-tabs.ui-widget > .seo-toolkit-panel .form-field select {
-    }
-
     .wp-admin .seo-toolkit-tabs.ui-widget > .seo-toolkit-panel .form-field input[type="button"] {
         grid-column: 2;
         place-self: center start;
@@ -207,9 +198,6 @@ body[class*='seo-toolkit'] .postbox .plugin-information .form-table td {
         grid-column: 2;
     }
 }
-
-/* Extra large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) {}
 
 /* WordPress 5.4 */
 .wp-admin .seo-toolkit-tabs .form-field select {

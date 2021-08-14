@@ -117,10 +117,6 @@ class Facebook
         /* Check if the nonce is set */
         $nonce = filter_input( INPUT_POST, "seo-toolkit-facebook-{$post_id}-nonce", FILTER_SANITIZE_STRING );
 
-        if ( empty( $nonce ) ) {
-            return;
-        }
-
         /* Verify that the nonce is valid */
         if ( ! wp_verify_nonce( $nonce, "seo-toolkit-facebook-{$post_id}-save" ) ) {
             return;
@@ -132,7 +128,7 @@ class Facebook
         }
 
         /* Don't update if the post is a revision or an autosave */
-        if ( wp_is_post_revision( $post_id ) || wp_is_post_autosave( $post_id ) ) {
+        if ( wp_is_post_revision( $post ) || wp_is_post_autosave( $post ) ) {
             return;
         }
 

@@ -197,7 +197,7 @@ class SocialMedia extends AbstractPage
                 <div id="seo-toolkit-socialmedia" class="seo-toolkit-tabs seo-toolkit-tabs-container">
 
                     <ul class="tabs tabs-nav">
-                    <?php foreach( $data as $key => $tab ) :  ?>
+                    <?php foreach( $data as $tab ) :  ?>
                         <li><a href="#<?= esc_attr( $tab[ 'panel' ] ) ?>"><?= esc_html( $tab[ 'label' ] ) ?></a></li>
                     <?php endforeach; ?>
                     </ul>

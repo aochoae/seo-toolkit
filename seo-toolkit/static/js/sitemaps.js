@@ -16,7 +16,7 @@ jQuery(function($) {
 
             $('#wpbody-content .wp-heading-inline').after(notice);
 
-        }).fail(function(e) {
+        }).fail(function() {
             console.log(sitemaps_ping.error);
         });
     });

@@ -66,21 +66,21 @@ class Person extends AbstractStructuredData
             $image = get_avatar_url( $user->ID, [ 'size' => 256 ] );
         }
 
-        $schema = [
+        $image_object_id = esc_url( get_home_url( get_current_blog_id(), '/#image' ) );
+
+        return [
             '@type' => [ 'Person', 'Organization' ],
             '@id'   => $this->getId(),
             'name'  => $name,
             'url'   => esc_url( get_home_url( get_current_blog_id(), '/' ) ),
             'image' => [
                 '@type' => 'ImageObject',
-                '@id'   => esc_url( get_home_url( get_current_blog_id(), '/#image' ) ),
+                '@id'   => $image_object_id,
                 'url'   => esc_url( $image )
             ],
             'logo' => [
-                '@id' => esc_url( get_home_url( get_current_blog_id(), '/#image' ) )
+                '@id' => $image_object_id
             ]
         ];
-
-        return $schema;
     }
 }

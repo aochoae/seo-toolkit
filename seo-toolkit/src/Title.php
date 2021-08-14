@@ -18,6 +18,11 @@ class Title
     const FORMAT_DEFAULT = "%title% %separator% %site-title%";
 
     /**
+     * @since 1.2.0
+     */
+    const POST_META_TITLE = '_seo_toolkit_title';
+
+    /**
      * Settings
      *
      * @since 1.0.0
@@ -95,7 +100,7 @@ class Title
                     $_title = '';
 
                     if ( 0 !== ( $page_id = get_option( 'page_on_front' ) ) ) {
-                        $_title = get_post_meta( $page_id, '_seo_toolkit_title', true );
+                        $_title = get_post_meta( $page_id, self::POST_META_TITLE, true );
                     }
 
                     if ( empty( $_title ) ) {
@@ -133,7 +138,7 @@ class Title
         if ( is_front_page() ) {
 
             if ( 0 !== ( $page_id = get_option( 'page_on_front' ) ) ) {
-                $title = get_post_meta( $page_id, '_seo_toolkit_title', true );
+                $title = get_post_meta( $page_id, self::POST_META_TITLE, true );
             }
 
             if ( empty( $title ) ) {
@@ -159,7 +164,7 @@ class Title
 
             $term_id = (int) get_queried_object_id();
 
-            $title = get_term_meta( $term_id, '_seo_toolkit_title', true );
+            $title = get_term_meta( $term_id, self::POST_META_TITLE, true );
 
             if ( empty( $title ) ) {
                 $title = single_term_title( '', false );

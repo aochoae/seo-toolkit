@@ -31,18 +31,10 @@ abstract class AbstractStructuredData
     {
         $website = get_option( 'seo_toolkit_website', '' );
 
-        $profile = isset( $website['profile'] ) ? $website['profile'] : '';
+        $profile = isset( $website['profile'] ) ? $website['profile'] : 'organization';
 
-        $id = '';
-
-        switch( $profile ) {
-            case 'organization':
-                $id = get_home_url( get_current_blog_id(), '/#organization' );
-                break;
-            case 'person':
-                $id = get_home_url( get_current_blog_id(), '/#person' );
-                break;
-        }
+        // append /#organization or /#person
+        $id = get_home_url( get_current_blog_id(), "/#{$profile}" );
 
         return esc_url_raw( $id );
     }

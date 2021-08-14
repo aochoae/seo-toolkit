@@ -263,7 +263,7 @@ class Sitemaps
      */
     public function complement()
     {
-        if ( true == get_option( 'seo_toolkit_sitemaps_images_enable', true ) ) {
+        if ( get_option( 'seo_toolkit_sitemaps_images_enable', true ) ) {
             \Toolkit\Sitemaps\Images::newInstance();
         }
     }

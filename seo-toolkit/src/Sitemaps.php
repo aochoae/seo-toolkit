@@ -191,9 +191,9 @@ class Sitemaps
     {
         $robots = get_option( 'seo_toolkit_robots', [] );
 
-        $robots = array_filter( $robots, function( $v, $k ) {
+        $robots = array_filter( $robots, function( $v ) {
             return in_array( $v, [ 'noindex', 'noindex, follow', 'noindex, nofollow' ] );
-        }, ARRAY_FILTER_USE_BOTH );
+        } );
 
         $pages = array_keys( $robots );
 

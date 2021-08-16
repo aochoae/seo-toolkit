@@ -181,20 +181,20 @@ class Facebook
 
                 $image_id = attachment_url_to_postid( $image );
 
-                $cards['og:images'] = $this->getImage( $image_id );
+                $_images = $this->getImage( $image_id );
             }
 
             elseif ( $image = $post->getImage() ) {
-                $opengraph['og:images'] = $this->getImage( $image );
+                $_images = $this->getImage( $image );
             }
 
             /* Gallery */
             elseif ( $gallery = $post->getGallery() ) {
-                $opengraph['og:images'] = iterator_to_array( $this->getImages( $gallery ) );
+                $_images = iterator_to_array( $this->getImages( $gallery ) );
             }
 
             if ( !empty( $_images ) ) {
-                $opengraph = $_images;
+                $opengraph['og:images'] = $_images;
             }
 
             wp_cache_set( $key, $opengraph, 'seo_toolkit', DAY_IN_SECONDS );
@@ -260,17 +260,19 @@ class Facebook
      */
     private function getImageProperty( $image_id )
     {
-        $metadata = wp_get_attachment_metadata( $image_id );
+        $image_url = wp_get_attachment_url( $image_id );
+
+        $image_metadata = wp_get_attachment_metadata( $image_id );
 
         $metatags = [
-            'og:image'            => wp_get_attachment_url( $image_id ),
-            'og:image:secure_url' => wp_get_attachment_url( $image_id ),
+            'og:image'            => $image_url,
+            'og:image:secure_url' => $image_url,
             'og:image:type'       => get_post_mime_type( $image_id ),
-            'og:image:width'      => $metadata[ 'width' ],
-            'og:image:height'     => $metadata[ 'height' ]
+            'og:image:width'      => $image_metadata[ 'width' ],
+            'og:image:height'     => $image_metadata[ 'height' ]
         ];
 
-        if ( wp_http_supports( array( 'ssl' ), $metatags[ 'og:image:secure_url' ] ) ) {
+        if ( ! wp_http_supports( array( 'ssl' ), $image_url ) ) {
             unset( $metatags[ 'og:image:secure_url' ] );
         }
 

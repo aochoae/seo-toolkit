@@ -28,6 +28,11 @@ class Robots
     private static $instance;
 
     /**
+     * @since 1.2.0
+     */
+    const DEFAULT_ROBOTS = 'index, follow';
+
+    /**
      * Constructor.
      *
      * @since 1.0.0
@@ -140,7 +145,7 @@ class Robots
                 $robots[] = [ 'robots' => $option ];
             } else {
 
-                $default = isset( $this->settings[ $context ] ) ? $this->settings[ $context ] : 'index';
+                $default = isset( $this->settings[ $context ] ) ? $this->settings[ $context ] : self::DEFAULT_ROBOTS;
 
                 $robots[] = [ 'robots' => $default ];
             }
@@ -187,7 +192,7 @@ class Robots
             $value = get_term_meta( $term_id, '_seo_toolkit_robots', true );
 
             if ( empty( $value ) || 'Default' == $value ) {
-                $value = isset( $this->settings[ $context ] ) ? $this->settings[ $context ] : 'index, follow';
+                $value = isset( $this->settings[ $context ] ) ? $this->settings[ $context ] : self::DEFAULT_ROBOTS;
             }
 
             $robots[] = [ 'robots' => $value ];
@@ -219,7 +224,7 @@ class Robots
 
             $robots = [];
 
-            $option = isset( $this->settings[ $context ] ) ? $this->settings[ $context ]: 'index';
+            $option = isset( $this->settings[ $context ] ) ? $this->settings[ $context ]: self::DEFAULT_ROBOTS;
 
             $robots[] = [ 'robots' => $option ];
 
@@ -250,7 +255,7 @@ class Robots
 
             $robots = [];
 
-            $option = isset( $this->settings[ $context ] ) ? $this->settings[ $context ]: 'index';
+            $option = isset( $this->settings[ $context ] ) ? $this->settings[ $context ]: self::DEFAULT_ROBOTS;
 
             $robots[] = [ 'robots' => $option ];
 

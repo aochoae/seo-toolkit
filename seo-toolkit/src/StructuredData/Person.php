@@ -13,6 +13,14 @@ namespace Toolkit\StructuredData;
 class Person extends AbstractStructuredData
 {
     /**
+     * Singleton instance
+     *
+     * @since 1.2.0
+     * @var Person
+     */
+    private static $instance;
+
+    /**
      * Constructor.
      *
      * @since 1.0.0
@@ -20,6 +28,22 @@ class Person extends AbstractStructuredData
     public function __construct()
     {
         add_filter( 'seo_toolkit_schema', [ $this, 'json' ], 5, 2 );
+    }
+
+    /***
+     * The singleton method.
+     *
+     * @since 1.2.0
+     *
+     * @return Person
+     */
+    public static function newInstance()
+    {
+        if ( !isset( self::$instance )) {
+            self::$instance = new Person;
+        }
+
+        return self::$instance;
     }
 
     /**

@@ -13,6 +13,11 @@ namespace Toolkit\Extensions;
 class WooCommerce
 {
     /**
+     * @since 1.2.0
+     */
+    const SHORT_DESCRIPTION = '%short_description%';
+
+    /**
      * Singleton instance
      *
      * @since 1.0.0
@@ -83,7 +88,7 @@ class WooCommerce
      */
     public function product( $description, $option, $post_id )
     {
-        if ( '%short_description%' == $option ) {
+        if ( self::SHORT_DESCRIPTION == $option ) {
             $description = get_post_field( 'post_excerpt', $post_id );
         }
 
@@ -162,7 +167,7 @@ class WooCommerce
     public function options( $format, $context )
     {
         if ( $context == 'product' ) {
-            $format[ 'product' ] = ['%short_description%', '%none%'];
+            $format[ 'product' ] = [self::SHORT_DESCRIPTION, '%none%'];
         } elseif ( in_array( $context, ['product_tag', 'product_cat', 'product_archive'] ) ) {
             $format[ $context ] = ['%description%', '%none%' ];
         }
@@ -178,7 +183,7 @@ class WooCommerce
      */
     public function descriptionString( $options )
     {
-        $options[ '%short_description%' ] = __( 'Short product description', 'seo-toolkit' );
+        $options[ self::SHORT_DESCRIPTION ] = __( 'Short product description', 'seo-toolkit' );
 
         return $options;
     }

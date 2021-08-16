@@ -52,7 +52,7 @@ class Title
         $this->settings = get_option( 'seo_toolkit_title', $default );
 
         /* Filters the parts of the document title */
-        add_filter( 'document_title_parts', [ $this, 'title' ], 10, 1 );
+        add_filter( 'document_title_parts', [ $this, 'title' ], 10 );
 
         /* Filters the separator for the document title */
         add_filter( 'document_title_separator', [ $this, 'separator' ], 10, 1 );
@@ -81,7 +81,7 @@ class Title
      *
      * @return array
      */
-    public function title( $title_parts )
+    public function title()
     {
         global $page, $paged;
 

@@ -30,10 +30,10 @@ class Taxonomies
         $taxonomies = get_taxonomies( [ 'public' => true ], 'names' );
 
         foreach( $taxonomies as $taxonomy ) {
-            add_action( "{$taxonomy}_edit_form_fields", [ $this, 'editFields' ], 20, 2 );
+            add_action( "{$taxonomy}_edit_form_fields", [ $this, 'editFields' ], 20, 1 );
         }
 
-        add_action( 'edited_terms', [ $this, 'update' ], 10, 2 );
+        add_action( 'edited_terms', [ $this, 'update' ], 10, 1 );
     }
 
     /**
@@ -57,7 +57,7 @@ class Taxonomies
      *
      * @since 1.0.0
      */
-    public function editFields( $term, $taxonomy )
+    public function editFields( $term )
     {
         $term_id = $term->term_id;
 
@@ -132,7 +132,7 @@ class Taxonomies
      *
      * @since 1.0.0
      */
-    public function update( $term_id, $taxonomy )
+    public function update( $term_id )
     {
         /* Verify that the nonce is valid */
         $nonce = filter_input( INPUT_POST, "seo-toolkit-{$term_id}-nonce", FILTER_SANITIZE_STRING );

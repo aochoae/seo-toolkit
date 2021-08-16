@@ -91,9 +91,9 @@ class StructuredData
         $profile = isset( $website['profile'] ) ? $website['profile'] : '';
 
         if ( 'person' == $profile ) {
-            new \Toolkit\StructuredData\Person;
+            \Toolkit\StructuredData\Person::newInstance();
         } else {
-            new \Toolkit\StructuredData\Organization;
+            \Toolkit\StructuredData\Organization::newInstance();
         }
     }
 
@@ -102,7 +102,7 @@ class StructuredData
      */
     public function searchbox()
     {
-        new \Toolkit\StructuredData\SearchBox;
+        \Toolkit\StructuredData\SearchBox::newInstance();
     }
 
     /**
@@ -115,7 +115,7 @@ class StructuredData
         $profile = isset( $website['profile'] ) ? $website['profile'] : '';
 
         if ( in_array( $profile, [ 'person', 'organization' ] ) ) {
-            new \Toolkit\StructuredData\Article;
+            \Toolkit\StructuredData\Article::newInstance();
         }
     }
 }

@@ -194,22 +194,29 @@ class Twitter
                 $cards[ 'twitter:creator' ] = $author;
             }
 
+            /* Images */
+            $images = '';
+
             /* Image */
             if( $image = get_post_field( '_seo_toolkit_twitter_image', $post_id ) ) {
 
                 $image_id = attachment_url_to_postid( $image );
 
-                $cards['twitter:images'] = $this->getImage( $image_id );
+                $images = $this->getImage( $image_id );
             }
 
             /* Gallery */
             elseif ( $gallery = $post->getGallery() ) {
-                $cards['twitter:images'] = iterator_to_array( $this->getImages( $gallery ) );
+                $images = iterator_to_array( $this->getImages( $gallery ) );
             }
 
             /* Image */
             elseif ( $image = $post->getImage() ) {
-                $cards['twitter:images'] = $this->getImage( $image );
+                $images = $this->getImage( $image );
+            }
+
+            if ( !empty( $images )) {
+                $cards['twitter:images'] = $images;
             }
 
             wp_cache_set( $key, $cards, 'seo_toolkit', DAY_IN_SECONDS );

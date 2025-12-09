@@ -1,5 +1,3 @@
-version: '3.7'
-
 services:
   db:
     image: mysql:5.7
@@ -15,7 +13,7 @@ services:
     container_name: seo-toolkit
     depends_on:
       - db
-    image: wordpress:latest
+    image: wordpress:php5.6-apache
     ports:
       - "8080:80"
     environment:
